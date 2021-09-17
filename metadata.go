@@ -5,14 +5,14 @@ type BasmMeta struct {
 	metaData map[string]string
 }
 
-func (bm *BasmMeta) loopMeta() map[string]string {
+func (bm *BasmMeta) LoopMeta() map[string]string {
 	if bm != nil && bm.metaData != nil {
 		return bm.metaData
 	}
 	return map[string]string{}
 }
 
-func (bm *BasmMeta) listMeta() string {
+func (bm *BasmMeta) ListMeta() string {
 	result := ""
 	if bm != nil && bm.metaData != nil {
 		for key, val := range bm.metaData {
@@ -25,7 +25,7 @@ func (bm *BasmMeta) listMeta() string {
 	return result
 }
 
-func (bm *BasmMeta) getMeta(meta string) string {
+func (bm *BasmMeta) GetMeta(meta string) string {
 	if bm != nil && bm.metaData != nil {
 		if value, ok := bm.metaData[meta]; ok {
 			return value
@@ -36,7 +36,7 @@ func (bm *BasmMeta) getMeta(meta string) string {
 	return ""
 }
 
-func (bm *BasmMeta) rmMeta(meta string) {
+func (bm *BasmMeta) RmMeta(meta string) {
 	if bm != nil && bm.metaData != nil {
 		if _, ok := bm.metaData[meta]; ok {
 			delete(bm.metaData, meta)
@@ -44,7 +44,7 @@ func (bm *BasmMeta) rmMeta(meta string) {
 	}
 }
 
-func (bm *BasmMeta) setMeta(meta string, value string) *BasmMeta {
+func (bm *BasmMeta) SetMeta(meta string, value string) *BasmMeta {
 	if bm == nil {
 		newbm := new(BasmMeta)
 		newbm.metaData = make(map[string]string)
